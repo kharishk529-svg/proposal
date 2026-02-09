@@ -3,9 +3,9 @@ let noMessages = [
     "Think again 💔",
     "Pleaseeee 🥺",
     "Don't break my heart 😭",
-    "I will cry 😭",
-    "Last chance 😤",
-    "You belong with me ❤️"
+    "I will be very sad 😞",
+    "You really mean No? 💔",
+    "Okay... last chance ❤️"
 ];
 
 let noCount = 0;
@@ -24,23 +24,19 @@ function accepted() {
 function moveNo() {
     let noBtn = document.getElementById("no");
 
-    // Change text every time hovered
-    if (noCount < noMessages.length) {
-        noBtn.innerText = noMessages[noCount];
-        noCount++;
+    // Change message
+    noBtn.innerText = noMessages[noCount];
+
+    // Increase counter and loop messages
+    noCount++;
+    if (noCount >= noMessages.length) {
+        noCount = 0;
     }
 
     // Move button randomly
     noBtn.style.position = "absolute";
     noBtn.style.left = Math.random() * (window.innerWidth - 120) + "px";
     noBtn.style.top = Math.random() * (window.innerHeight - 60) + "px";
-
-    // After many tries remove NO button 😏
-    if (noCount === noMessages.length) {
-        setTimeout(() => {
-            noBtn.style.display = "none";
-        }, 800);
-    }
 }
 
 // Floating hearts
